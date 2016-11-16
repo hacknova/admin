@@ -1,0 +1,39 @@
+.navbar-default,
+.topbar,
+.topbar-left {
+  background-color: #3bafda !important;
+}
+
+.logo span,
+.logo i {
+  color: #FFFFFF !important;
+}
+
+/**
+ * side-menu
+ **/
+.side-menu,
+.sidebar-inner,
+#sidebar-menu,
+.side-menu ul li a,
+.side-menu ul li i {
+  background-color: rgb(50, 59, 68) !important;
+  color: #FFFFFF !important;
+}
+
+.menu-title {
+  color: #cfcfcf !important;
+}
+
+.user-info-span,
+.user-info-span h5 {
+  color: #FFFFFF !important;
+}
+
+.user-detail {
+  border-top-color: rgb(76, 86, 103) !important;
+}
+
+.footer {
+  text-align: right !important;
+}

@@ -1,0 +1,68 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.event.name }}{% endif %}</title>
+
+  <meta name="viewport"    content="width=device-width, initial-scale=1">
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.seo.description }}{% endif %}">
+
+  <!-- Twitter Handle -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:site"        content="@{{ site.social.twitter_handle }}" />
+  <meta name="twitter:creator"     content="@{{ site.social.twitter_handle }}" />
+  <meta name="twitter:title"       content="{{ site.seo.title }}">
+  <meta name="twitter:description" content="{{ site.seo.description }}">
+  {% if site.seo.image %}<meta name="twitter:image" content="{{ site.seo.image }}">{% endif %}
+
+  <!-- Open Graph -->
+  <meta property="og:site_name"   content="{{ site.event.name }}" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="{{ site.baseurl | prepend: site.url }}" />
+  <meta property="og:title"       content="{{ site.seo.title }}" />
+  <meta property="og:description" content="{{ site.seo.description }}" />
+  {% if site.seo.image %}<meta property="og:image" content="{{ site.seo.image }}" />{% endif %}
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,300italic,400italic,700italic" />
+  <link rel="stylesheet" type="text/css" href="{{ '/css/base.css' | prepend: site.baseurl | prepend: site.url }}" />
+  <link rel="stylesheet" type="text/css" href="{{ '/css/' | prepend: site.baseurl | prepend: site.url }}{{ site.style.theme | append: '.css' }}" />
+
+  <!-- Favicon -->
+  <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="icon"      href="{{ '/img/favicon.ico' | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link href="{{ '/css/switchery.min.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" />
+  <link href="{{ '/css/jquery.circliful.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css" />
+
+  <link href="{{ '/css/core.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/css/icons.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/css/components.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/css/pages.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/css/menu.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/css/responsive.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet" type="text/css">
+
+  <script src="{{ '/js/modernizr.min.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+
+  <!-- Raven JS -->
+  <script src="https://cdn.ravenjs.com/3.6.1/raven.min.js"></script>
+  <script type="text/javascript">
+    Raven.config('https://5a9b1bcb0df5496391306316134886f2@sentry.tritonjs.com/4').install()
+  </script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/async/2.1.2/async.min.js"></script>
+</head>

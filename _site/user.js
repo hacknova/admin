@@ -1,0 +1,3 @@
+/**
+ * HackNova API Handler
+ **/

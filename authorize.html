@@ -1,0 +1,133 @@
+---
+layout: default
+---
+
+<style type="text/css">
+  body {
+      overflow:hidden;
+  }
+
+  .notification {
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+  }
+
+  .notification p {
+    font-size: 3em;
+    font-family: 'Montserrat';
+    color: #FFFFFF;
+  }
+
+  /**
+   * loading
+   **/
+  .loading {
+    margin: 10% auto;
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid #fff;
+    border-right: 6px solid #3bafda;
+    border-top: 6px solid #3bafda;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    -webkit-animation: spin .6s infinite linear;
+    -moz-animation: spin .6s infinite linear;
+    -ms-animation: spin .6s infinite linear;
+    -o-animation: spin .6s infinite linear;
+    animation: spin .6s infinite linear;
+  }
+
+  @keyframes "spin" {
+    from {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+      -moz-transform: rotate(359deg);
+      -o-transform: rotate(359deg);
+      -ms-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+
+  @-moz-keyframes spin {
+    from {
+      -moz-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -moz-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+
+  @-webkit-keyframes "spin" {
+    from {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+
+  @-ms-keyframes "spin" {
+    from {
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+
+  @-o-keyframes "spin" {
+    from {
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -o-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+</style>
+
+<div class='notification'>
+  <p>
+    You're being redirected ...
+    <div class='loading'></div>
+  </p>
+</div>
+
+<script type="text/javascript">
+  window.onload = function() {
+    // Set User Authentication Here.
+    function gup( name, url ) {
+      if (!url) url = location.href;
+      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      var regexS = "[\\#?&]"+name+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( url );
+      return results == null ? null : results[1];
+    }
+
+    var access_token = gup('access_token');
+
+    console.log('got access token', access_token);
+    $.cookie('hacknova_accesstoken', access_token);
+
+    if(access_token && access_token !== "") {
+      window.location.href = '/dashboard.html';
+    } else {
+      window.location.href = '/index.html?error="Failed To Obtain Access Token"'
+    }
+  }
+</script>
